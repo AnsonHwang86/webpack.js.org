@@ -55,7 +55,8 @@ which would yield these results:
 
 ```js
 import Test1 from 'xyz'; // Success, file.js is resolved and imported
-import Test2 from 'xyz/file.js'; // Error, /path/to/file.js/file.js is invalid
+import Test2 from 'xyz/file.js'; // Module not found: Error: Cannot resolve module 'Utilities/file.js' in 'path/to/',
+Firstly, webpack will find path/to/file.js/file.js, if doesn't exist, webpack will find /abc/node_modules/Utilities/file.js. If neither exist, webpack will look for file.js at current directory(which file import/require it) which refer to path/to/Utilities/file.js.
 ```
 
 The following table explains a lot more cases:
